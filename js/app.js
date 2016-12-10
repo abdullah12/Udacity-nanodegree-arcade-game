@@ -81,10 +81,6 @@ Enemy.prototype.checkCollision =  function(enemy){
     }
 }
 
-// var checkCollision = function(anEnemy) {
-
-// };
-
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -108,13 +104,31 @@ var Player = function(x, y, speed) {
 };
 
 Player.prototype.update = function() {
-    // function not needed right now
+    player.checkWin();
 }
 
 // Draw the player on the screen, required method for game
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
+
+Player.prototype.checkWin =  function(){
+
+    // check for player reaching top of canvas and winning the game
+    // if player wins, add 1 to the score and level
+    // pass score as an argument to the increaseDifficulty function
+    if (player.y + 63 <= 0) {
+        player.x = 202.5;
+        player.y = 383;
+
+        score++;
+        gameLevel++;
+        console.log('current score: ' + score + ', current level: ' + gameLevel);
+        increaseDifficulty(score);
+    }
+}
+
 
 Player.prototype.handleInput = function(keyPress, pause) {
     if (!pause || keyPress === "space") {
@@ -141,6 +155,18 @@ Player.prototype.handleInput = function(keyPress, pause) {
                 break;
         }
     };
+
+    // check if player runs into left, bottom, or right canvas walls
+    // prevent player from moving beyond canvas wall boundaries
+    if (player.y > 383) {
+        player.y = 383;
+    }
+    if (player.x > 402.5) {
+        player.x = 402.5;
+    }
+    if (player.x < 2.5) {
+        player.x = 2.5;
+    }
 
 };
 
