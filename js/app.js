@@ -112,10 +112,8 @@ Player.prototype.update = function() {
 }
 
 // Draw the player on the screen, required method for game
-// Display score
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    displayScoreLevel(score, gameLevel);
 };
 
 Player.prototype.handleInput = function(keyPress, pause) {
