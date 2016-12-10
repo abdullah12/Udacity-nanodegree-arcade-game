@@ -1,3 +1,16 @@
+// Element class for extend the render function to Player and Enemy classes;
+var Element = function (sprite, x, y) {
+    this.sprite = sprite;
+    this.x = (x || 0);
+    this.y = (y || 0);
+};
+
+Element.prototype.render = function () {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+
+
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -10,6 +23,9 @@ var Enemy = function(x, y, speed) {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
 };
+
+// extend render method from element class
+Enemy.prototype = new Element();
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -81,11 +97,6 @@ Enemy.prototype.checkCollision =  function(enemy){
     }
 }
 
-// Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -103,14 +114,12 @@ var Player = function(x, y, speed) {
     ]
 };
 
+// extend render method from element class
+Player.prototype = new Element();
+
 Player.prototype.update = function() {
     player.checkWin();
 }
-
-// Draw the player on the screen, required method for game
-Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
 
 
 Player.prototype.checkWin =  function(){
