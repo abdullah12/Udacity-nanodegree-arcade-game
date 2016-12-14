@@ -43,7 +43,7 @@ Enemy.prototype.update = function(dt, pause) {
         }
 
         // Check for collision with enemies or barrier-walls
-        enemy.checkCollision(this);
+        this.checkCollision(this);
     } else {
         this.x = this.x;
     }
@@ -66,34 +66,6 @@ Enemy.prototype.checkCollision =  function(enemy){
             score--;
         }
 
-    }
-
-    // check for player reaching top of canvas and winning the game
-    // if player wins, add 1 to the score and level
-    // pass score as an argument to the increaseDifficulty function
-    if (player.y + 63 <= 0) {
-        player.x = 202.5;
-        player.y = 383;
-
-        ctx.fillStyle = 'white';
-        ctx.fillRect(0, 0, 505, 171);
-
-        score++;
-        gameLevel++;
-        console.log('current score: ' + score + ', current level: ' + gameLevel);
-        increaseDifficulty(score);
-    }
-
-    // check if player runs into left, bottom, or right canvas walls
-    // prevent player from moving beyond canvas wall boundaries
-    if (player.y > 383) {
-        player.y = 383;
-    }
-    if (player.x > 402.5) {
-        player.x = 402.5;
-    }
-    if (player.x < 2.5) {
-        player.x = 2.5;
     }
 }
 
