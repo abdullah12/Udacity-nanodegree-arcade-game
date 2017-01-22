@@ -10,7 +10,7 @@ In this game the goal is simple, get the hero character to move across the gray 
 #### Movement and Controls
 Users move the hero character by using the main up/right/left/down arrow keys on their keyboard. You can pause the game with the "space" and change the player with "enter" keyboard;
 
-(https://jotavejv.github.com/udacity/canvas)[Demo online]
+[Demo online](https://jotavejv.github.com/udacity/canvas)
 
 ## Installation
 To run the application:
