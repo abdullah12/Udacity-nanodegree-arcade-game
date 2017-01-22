@@ -10,8 +10,7 @@ In this game the goal is simple, get the hero character to move across the gray 
 #### Movement and Controls
 Users move the hero character by using the main up/right/left/down arrow keys on their keyboard. You can pause the game with the "space" and change the player with "enter" keyboard;
 
-## Link to Original GitHub Repository (Master Branch)
-* GitHub Project Repository: [https://github.com/udacity/frontend-nanodegree-arcade-game](https://github.com/udacity/frontend-nanodegree-arcade-game"GitHub project repository")
+(https://jotavejv.github.com/udacity/canvas)[Demo online]
 
 ## Installation
 To run the application:
